@@ -1,6 +1,6 @@
 # wavy-loader
 
-A React wavy loader component built with TypeScript and Vite. Ready to publish to npm.
+React progress components with animated wavy strokes. Built with TypeScript and Vite. Ready to publish to npm.
 
 ## Installation
 
@@ -8,34 +8,85 @@ A React wavy loader component built with TypeScript and Vite. Ready to publish t
 yarn add wavy-loader
 ```
 
-## Usage
+## Components
+
+### `Progress`
+
+Linear progress bar with a wavy animated fill and optional track.
 
 ```tsx
-import { WavyLoader } from "wavy-loader";
+import { Progress } from "wavy-loader";
 
 function App() {
-  return <WavyLoader />;
+  const [progress, setProgress] = useState(0);
+  return <Progress progress={progress} />;
 }
 ```
 
-### Props
+| Prop               | Type   | Default   | Description                          |
+| ------------------ | ------ | --------- | ------------------------------------ |
+| `progress`         | number | 0         | Progress value (0–100)                |
+| `speed`            | number | 0.01      | Wave animation speed                 |
+| `width`            | number | 400       | Width (px)                           |
+| `height`           | number | 40        | Height (px)                          |
+| `stroke`           | number | 8         | Stroke width (px)                    |
+| `amplitude`        | number | 4         | Wave amplitude (px)                  |
+| `headRampFraction` | number | 0.28      | Ramp-in fraction at the wave head   |
+| `trackColor`       | string | `#524B6B` | Background track color               |
+| `color`            | string | `#c3a6ff` | Progress stroke color                |
 
-| Prop       | Type     | Default        | Description                |
-| ---------- | -------- | -------------- | -------------------------- |
-| `bars`     | number   | 5              | Number of wave bars        |
-| `barWidth` | number   | 4              | Bar width (px)             |
-| `color`    | string   | "currentColor" | Bar color                  |
-| `duration` | number   | 1.2            | Animation duration (sec)   |
-| `height`   | number   | 40             | Height (px)                |
-| `className`| string   | ""             | CSS class name            |
-| `style`    | object   | {}             | Inline styles             |
+---
+
+### `CircularWavyProgress`
+
+Circular progress indicator with a wavy animated stroke.
+
+```tsx
+import { CircularWavyProgress } from "wavy-loader";
+
+function App() {
+  const [progress, setProgress] = useState(50);
+  return <CircularWavyProgress progress={progress} />;
+}
+```
+
+| Prop         | Type   | Default   | Description                |
+| ------------ | ------ | --------- | -------------------------- |
+| `progress`   | number | 100       | Progress value (0–100)     |
+| `size`       | number | 220       | Diameter (px)              |
+| `stroke`     | number | 8         | Stroke width (px)         |
+| `speed`      | number | 0.005     | Wave animation speed      |
+| `trackColor` | string | `#524B6B` | Background track color    |
+| `color`      | string | `#c3a6ff` | Progress stroke color     |
+
+## Project structure
+
+```
+wavy-loader/
+├── src/
+│   ├── index.tsx              # Public exports
+│   ├── demo.tsx               # Dev demo (yarn dev)
+│   ├── vite-env.d.ts
+│   ├── hooks/
+│   │   └── usePhase.ts        # Animation phase hook
+│   └── wavy-loader/
+│       ├── Circular.tsx       # CircularWavyProgress
+│       └── Progress.tsx       # Progress (linear)
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── README.md
+```
 
 ## Development
 
 ```bash
 yarn install
-yarn dev     # run demo (index.html + src/demo.tsx)
-yarn build   # build library to dist/
+yarn dev     # Run demo at http://localhost:5173
+yarn build   # Build library to dist/
+yarn preview # Preview production build (if using demo build)
 ```
 
 ## Publishing to npm
