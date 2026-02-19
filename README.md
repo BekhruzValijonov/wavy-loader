@@ -2,6 +2,10 @@
 
 React progress components with animated wavy strokes. Built with TypeScript and Vite. Ready to publish to npm.
 
+## Preview
+
+![wavy-loader preview](assets/preview.png)
+
 ## Installation
 
 ```bash
@@ -77,7 +81,9 @@ wavy-loader/
 ├── tsconfig.json
 ├── tsconfig.node.json
 ├── vite.config.ts
-└── README.md
+├── README.md
+└── assets/
+    └── preview.png
 ```
 
 ## Development
