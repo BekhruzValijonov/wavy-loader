@@ -1,0 +1,43 @@
+# Source (only dist is published)
+src/
+
+# Dev / demo
+index.html
+demo/
+*.demo.*
+*.stories.*
+
+# Config & tooling
+vite.config.ts
+vite.config.js
+tsconfig.json
+tsconfig.node.json
+*.config.js
+*.config.ts
+.eslintrc*
+.prettierrc*
+
+# Version control & IDE
+.git
+.gitignore
+.idea
+.vscode
+*.swp
+*.swo
+
+# Dependencies (never ship node_modules)
+node_modules
+
+# Tests & coverage
+coverage/
+*.test.*
+*.spec.*
+__tests__/
+__mocks__/
+
+# OS & misc
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*

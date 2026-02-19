@@ -98,9 +98,8 @@ yarn preview # Preview production build (if using demo build)
 ## Publishing to npm
 
 1. Sign up at [npmjs.com](https://www.npmjs.com).
-2. Log in: `yarn login` (or `npm login`).
-3. Update `name` in `package.json` if needed (must be unique).
-4. Build: `yarn build`.
-5. Publish: `yarn publish` or `npm publish`.
+2. Log in: `npm login`.
+3. Build: `yarn build`.
+4. Publish: `npm publish` or `yarn publish`.
 
 For a scoped package (e.g. `@yourname/wavy-loader`), set `"name": "@yourname/wavy-loader"` in `package.json` and run `npm publish --access public`.

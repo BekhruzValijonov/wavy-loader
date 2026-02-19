@@ -7,9 +7,11 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      insertTypesEntry: true,
       include: ["src"],
+      exclude: ["src/demo.tsx", "src/vite-env.d.ts"],
       outDir: "dist",
+      rollupTypes: true,
+      copyDtsFiles: false,
     }),
   ],
   build: {
